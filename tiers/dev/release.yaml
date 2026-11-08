@@ -1,0 +1,20 @@
+# PROMOTABLE: copied verbatim from the previous tier by a promotion PR.
+# Only the chart digest, its version annotation and shared values belong here.
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: example
+  namespace: example
+  annotations:
+    promo.twallac10.dev/chart-version: 0.0.0
+spec:
+  ref:
+    digest: sha256:0000000000000000000000000000000000000000000000000000000000000000
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: example
+  namespace: example
+spec:
+  values: {}

@@ -1,0 +1,14 @@
+# TIER-ONLY (stg): never promoted. Replicas, retention, enforcement mode, remediation.
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: example
+  namespace: example
+spec:
+  upgrade:
+    # onFailure: rollback. A failed upgrade (including failed tests) is rolled back once.
+    remediation:
+      retries: 0
+      remediateLastFailure: true
+      strategy: rollback
+  values: {}

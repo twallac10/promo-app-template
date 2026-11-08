@@ -1,0 +1,19 @@
+# Shared values come from tiers/<tier>/release.yaml (promoted);
+# tier-only values and remediation from tiers/<tier>/tier.yaml (never promoted).
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: example
+  namespace: example
+spec:
+  interval: 10m
+  releaseName: example
+  chartRef:
+    kind: OCIRepository
+    name: example
+  install:
+    remediation:
+      retries: 0
+  test:
+    enable: true
+    ignoreFailures: false
