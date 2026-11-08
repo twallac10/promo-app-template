@@ -1,0 +1,5 @@
+.DS_Store
+.cache/
+chart/charts/
+chart/Chart.lock.bak
+*.tgz
