@@ -16,5 +16,7 @@ kind: HelmRelease
 metadata:
   name: example
   namespace: example
+  annotations:
+    event.toolkit.fluxcd.io/release-id: sha256:8e826a3aff544e98115109d79cd1ac4042e10f671f4b6b62215680795d50e47c
 spec:
   values: {}
