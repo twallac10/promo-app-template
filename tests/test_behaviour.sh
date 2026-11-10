@@ -1,7 +1,5 @@
 # Behaviour tests (Testkube): the signed promotion evidence. Rendered by the
 # template-owned chart/templates/_behaviour.tpl from each app's chart/templates/behaviour.yaml.
-behaviour() { render "${1:-dev}" | yq "select(.metadata.namespace == \"testkube\" or .kind == \"TestWorkflowExecution\" or (.kind == \"Role\" and .metadata.name == \"promo-behaviour-$APP\") or (.kind == \"RoleBinding\" and .metadata.name == \"promo-behaviour-$APP\"))"; }
-check_names() { behaviour "${1:-dev}" | yq 'select(.kind=="TestWorkflow") | .spec.steps[] | select(has("shell")) | .name' | grep -v -- '---'; }
 
 test_behaviour_workflow() {
   is_template && { echo skip; return 0; }
